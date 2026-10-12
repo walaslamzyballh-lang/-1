@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مركز تعليم المسجد</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    :root {
+      --pico-font-family: Tahoma, Arial, sans-serif;
+      --pico-primary: #205943;
+      --pico-primary-hover: #123d30;
+    }
+    body { background: #f7f6f0; color: #23372e; }
+    header {
+      background: #123d30; color: white;
+      padding: 18px; text-align: center;
+      border-bottom: 3px solid #d8b86e;
+    }
+    header h2 { color: white; margin: 8px 0; }
+    header p { color: #e4d3a2; margin: 0; }
+    main.container { padding-top: 24px; }
+    .hero {
+      background: linear-gradient(135deg,#123d30,#286348);
+      color: white; padding: 28px 22px; border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 { color: #f1d58a; font-size: 1.7rem; }
+    .hero p { color: #fff; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+      gap: 12px; margin: 20px 0;
+    }
+    .card {
+      background: white; border: 1px solid #e5e2d5;
+      border-radius: 16px; padding: 18px; text-align: center;
+    }
+    .symbol { font-size: 2rem; }
+    .card h3 { font-size: 1rem; color: #205943; }
+    .panel {
+      background: white; border-radius: 16px;
+      padding: 20px; margin-bottom: 18px;
+      border: 1px solid #e5e2d5;
+    }
+    .panel h2 { color: #123d30; font-size: 1.2rem; }
+    .note {
+      background: #f8f0dc; border-right: 4px solid #d8b86e;
+      padding: 14px; border-radius: 8px;
+    }
+    footer { text-align: center; color: #66776c; padding: 20px; }
+    button { width: 100%; }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="font-size:2rem;color:#d8b86e">۞</div>
+    <h2>مركز تعليم المسجد</h2>
+    <p>بالعلم نرتقي وبالأخلاق نسمو</p>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p>مرحباً بكم في مركزنا التعليمي</p>
+      <h1>نور العلم يبدأ بخطوة</h1>
+      <p>
+        منصة لتنظيم حلقات القرآن الكريم والحديث الشريف
+        والفقه والعلوم الشرعية، ومتابعة الحضور والتقدم.
+      </p>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <div class="symbol">📖</div>
+        <h3>القرآن الكريم</h3>
+        <p>الحفظ والمراجعة</p>
+      </article>
+      <article class="card">
+        <div class="symbol">🌙</div>
+        <h3>الحديث الشريف</h3>
+        <p>حفظ الأحاديث وفهمها</p>
+      </article>
+      <article class="card">
+        <div class="symbol">🕌</div>
+        <h3>الفقه والعلوم الشرعية</h3>
+        <p>تعلم الأحكام والآداب</p>
+      </article>
+      <article class="card">
+        <div class="symbol">⭐</div>
+        <h3>التفوق والتكريم</h3>
+        <p>تشجيع التقدم والاجتهاد</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>بوابة المستخدمين</h2>
+      <p>سيكون لكل مستخدم حساب وصلاحيات خاصة به.</p>
+      <label for="role">نوع الحساب</label>
+      <select id="role">
+        <option value="student">الطالب</option>
+        <option value="parent">ولي الأمر</option>
+        <option value="admin">المشرف</option>
+      </select>
+      <label for="email">البريد الإلكتروني</label>
+      <input id="email" type="email" placeholder="أدخل البريد الإلكتروني">
+      <button onclick="showMessage()">متابعة</button>
+      <p id="message" role="status"></p>
+      <p class="note">
+        تسجيل الدخول الحقيقي سيُفعّل بعد إعداد قاعدة البيانات
+        ونظام المصادقة. هذه الصفحة واجهة أولية فقط.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>متابعة الطلاب</h2>
+      <p>إدارة الحضور والعلامات اليومية والشهرية والواجبات
+      والاختبارات ستكون متاحة للمشرف بعد تأمين الحسابات.</p>
+    </section>
+
+    <section class="panel">
+      <h2>الإزالة الإدارية الموثقة</h2>
+      <p>
+        سيتمكن المشرف من إزالة الطالب بعد كتابة السبب.
+        وسيظهر السبب للطالب ولولي الأمر عند تسجيل الدخول،
+        مع حفظ تاريخ الإجراء في قاعدة البيانات.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    مركز تعليم المسجد · العلم أمانة ورسالة
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "واجهة تجريبية فقط؛ سيتم تفعيل تسجيل الدخول بعد إعداد المصادقة.";
+    }
+  </script>
+</body>
+</html>
